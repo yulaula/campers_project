@@ -184,4 +184,12 @@ public class CampsiteServiceImpl implements CampsiteService{
 	public Campsite findByIndex(String campsite_index) {
 		return mapper.selectCampsiteByIndex(campsite_index);
 	}
+	
+	@Override
+	public List<Campsite> selectCampsiteListById(String id) {
+		
+		System.out.println("campsiteid : " + id);
+		
+		return mapper.selectCampsiteListById(id);
+	}
 }

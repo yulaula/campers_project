@@ -46,12 +46,19 @@ public class ReservationController {
 	private CampsiteService campsiteservice;
 
 	@GetMapping("/reservation/step1")
-	public ModelAndView campsiteView(ModelAndView model, @RequestParam HashMap<String, String> param) {
+	public ModelAndView campsiteView(ModelAndView model, 
+			@RequestParam HashMap<String, String> param
+			) {
+		
 		String headCount = param.get("headCount");
-		String campsite_index = param.get("campsite_index");
+		String campsite_index = param.get("campsiteIndex");
+		
+		System.out.println("campsite_index : " + campsite_index);
+		
 		Campsite campsite = campsiteservice.findByIndex(campsite_index);
-		model.addObject("headCount",headCount);
-		model.addObject("campsite",campsite);
+		
+		model.addObject("headCount", headCount);
+		model.addObject("campsite", campsite);
 		model.setViewName("/reservation/step1");
 
 		return model;

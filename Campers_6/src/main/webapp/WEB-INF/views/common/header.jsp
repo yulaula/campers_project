@@ -284,7 +284,6 @@
 											href="${path }/searchList2/glampsite">글램핑</a> <a
 											class="dropdown-item GmarketSansMedium"
 											href="${path }/searchList2/caravsite">카라반</a>
-										href="category-2-rooms.html">카라반</a>
 								</div></li>
 
 							<!-- /Megamenu end-->

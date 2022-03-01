@@ -27,6 +27,7 @@ public interface CampsiteService {
 	Campsite login(String id, String password);
 	
 	Campsite findByIndex(String campsite_index);
-	
 
+	List<Campsite> selectCampsiteListById(String id);
+	
 }

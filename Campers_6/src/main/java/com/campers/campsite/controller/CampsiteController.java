@@ -20,13 +20,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.campers.board.model.vo.FreeBoard;
+import com.campers.board.model.vo.ReviewBoard;
 import com.campers.campsite.model.service.CampsiteService;
 import com.campers.campsite.model.vo.Campsite;
 import com.campers.campsite.model.vo.CampsiteBean;
+import com.campers.user.model.vo.User;
 import com.kh.mvc.common.util.PageInfo;
 
 import api.campers.ApiExplorer;
@@ -317,16 +321,26 @@ public class CampsiteController {
 		
 		return "redirect:/";
 	}
-
-	@GetMapping("/campsite/userView")
-	public String view() {
-		log.info("캠핑장회원 정보 페이지 요청");
-		return "user/profileForCampsite";
-	}
 	
 	@GetMapping("/campsite/add_step0")
 	public String addStep0() {
 		log.info("캠핑장 추가 0 페이지 요청");
 		return "campsite/add_step0";
+	}
+	
+	@GetMapping("/campsite/userView")
+	public ModelAndView view(ModelAndView model,
+			@SessionAttribute(name ="loginCampsite", required = false) Campsite loginCampsite
+			) {
+		log.info("캠핑장회원 정보 페이지 요청");
+		
+		List<Campsite> campsiteList = service.selectCampsiteListById(loginCampsite.getId());
+		
+		System.out.println("id로 찾은 campsite : " + campsiteList);
+		
+		model.addObject("campsiteList", campsiteList);
+		model.setViewName("/user/profileForCampsite");
+
+		return model;
 	}
 }

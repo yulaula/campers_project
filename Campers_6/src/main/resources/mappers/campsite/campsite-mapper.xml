@@ -236,6 +236,11 @@
 		WHERE campsite_index = #{campsite_index}	
 	</select>
 	
+	<select id="selectCampsiteListById" resultMap="campsiteMap" parameterType="string">
+		SELECT *
+		FROM CAMPSITE
+		WHERE id = #{id}	
+	</select>
 	
 	
 </mapper>

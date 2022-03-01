@@ -72,7 +72,13 @@
                                     <div>
                                         <h6> <a class="text-reset" href="detail-rooms.html">${campsite.campsite_name}</a></h6>
                                         <p class="text-muted text-sm mb-0">${campsite.addr1}</p>
-                                        <div class="mt-n1"><i class="fa fa-xs fa-star text-primary"></i>${headCount}<i class="fa fa-xs fa-star text-primary"></i><i class="fa fa-xs fa-star text-primary"></i><i class="fa fa-xs fa-star text-primary"></i><i class="fa fa-xs fa-star text-gray-200"></i>
+                                        <div class="mt-n1">
+                                        	
+                                        	<i class="fa fa-xs fa-star text-primary"></i>
+                                        	<i class="fa fa-xs fa-star text-primary"></i>
+                                        	<i class="fa fa-xs fa-star text-primary"></i>
+                                        	<i class="fa fa-xs fa-star text-primary"></i>
+                                        	<i class="fa fa-xs fa-star text-gray-200"></i>
                                         </div>
                                     </div>
                                     <a class="flex-shrink-0" href="detail-rooms.html"><img class="ms-3 rounded" src="${campsite.first_image}" alt="" width="100"></a>
@@ -80,7 +86,7 @@
                             </div>
                             <div class="text-block py-3">
                                 <ul class="list-unstyled mb-0">
-                                    <li class="mb-3"><i class="fas fa-users fa-fw text-muted me-2"></i></li>
+                                    <li class="mb-3"><i class="fas fa-users fa-fw text-muted me-2"></i>${headCount} 명</li>
                                     <li class="mb-0"><i class="far fa-calendar fa-fw text-muted me-2"></i>2021년 4월 17일<i class="fas fa-arrow-right fa-fw text-muted mx-3"></i>2021년 4월 18일</li>
                                 </ul>
                             </div>

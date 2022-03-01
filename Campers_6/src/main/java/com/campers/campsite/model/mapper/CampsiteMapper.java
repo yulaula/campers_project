@@ -38,7 +38,7 @@ public interface CampsiteMapper {
 		
 		Campsite selectCampsiteByIndex(String campsite_index);
 
-
-	
+		List<Campsite> selectCampsiteListById(String id);
+		
 	
 }
