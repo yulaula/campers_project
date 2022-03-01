@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.campers.inquiry.model.mapper.InquiryMapper">
+	<sql id="selectInquirySql">
+ 		SELECT  INQUIRY_NO, 
+			    SENDER, 
+			    RECEIVER, 
+			    REGIST_DATE,
+			    CONTENT
+		FROM INQUIRY
+ 	</sql>
+ 
+ 	<resultMap type="Inquiry" id="inquiryResultMap">
+ 		<id property="no" column="RESERVATION_NO"/>
+ 		<result property="sender" column="SENDER" />
+ 		<result property="receiver" column="RECEIVER"/>
+ 		<result property="registDate" column="REGIST_DATE"/>
+ 		<result property="content" column="CONTENT"/>
+ 	</resultMap>
+ 
+ 	<select id="selectAll" resultMap="inquiryResultMap">
+ 		<include refid="selectInquirySql" />
+ 	</select>
+</mapper>

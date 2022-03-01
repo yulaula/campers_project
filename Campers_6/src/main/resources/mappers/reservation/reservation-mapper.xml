@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Mapper 설정 파일임을 선언하는 부분 -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.campers.reservation.model.mapper.ReservationMapper">
+	<sql id="selectReservationSql">
+ 		SELECT  RESERVATION_NO, 
+			    PAY, 
+			    HEADCOUNT, 
+			    CHECKIN,
+			    CHECKOUT, 
+			    G_USER_ID, 
+			    CAMPITE_INDEX
+		FROM RESERVATION
+ 	</sql>
+ 
+ 	<resultMap type="Reservation" id="reservationResultMap">
+ 		<id property="reservNo" column="RESERVATION_NO"/>
+ 		<result property="cost" column="PAY" />
+ 		<result property="headcount" column="HEADCOUNT"/>
+ 		<result property="checkIn" column="CHECKIN"/>
+ 		<result property="checkOut" column="CHECKOUT"/>
+ 		<result property="userId" column="G_USER_ID"/>
+ 		<result property="campsiteIndex" column="CAMPITE_INDEX"/>
+ 	</resultMap>
+ 
+ 	<select id="selectAll" resultMap="reservationResultMap">
+ 		<include refid="selectReservationSql" />
+ 	</select>
+</mapper>
